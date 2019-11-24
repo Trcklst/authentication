@@ -2,7 +2,7 @@
 
 * Use : 
 ```
-POST /oauth/token
+POST {host}/oauth/token
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic {clientId} {clientSecret}
 password={password}&

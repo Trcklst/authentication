@@ -16,4 +16,4 @@ WORKDIR /app
 # copy over the built artifact from the maven image
 COPY --from=maven /app/authentication.jar ./authentication.jar
 # set the startup command to run your binary
-CMD ["java", "-jar", "/app/authentication.jar"]
+CMD ["java", "-jar", "-Dspring.profiles.active=docker", "/app/authentication.jar"]
