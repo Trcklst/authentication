@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>authentication</name>
     <description>Authentication service</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -69,6 +70,11 @@
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot.experimental</groupId>
+            <artifactId>spring-boot-thin-layout</artifactId>
+            <version>1.0.22.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -88,6 +94,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.boot.experimental</groupId>
+                        <artifactId>spring-boot-thin-layout</artifactId>
+                        <version>1.0.22.RELEASE</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
