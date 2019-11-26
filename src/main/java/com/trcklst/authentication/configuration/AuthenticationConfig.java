@@ -1,4 +1,4 @@
-package com.trklst.authentication.configuration;
+package com.trcklst.authentication.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

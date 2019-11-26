@@ -1,8 +1,8 @@
-package com.trklst.authentication.configurations;
+package com.trcklst.authentication.configurations;
 
-import com.trklst.authentication.core.Account;
-import com.trklst.authentication.core.AccountRepository;
-import com.trklst.authentication.mock.AccountMock;
+import com.trcklst.authentication.mock.AccountMock;
+import com.trcklst.authentication.core.Account;
+import com.trcklst.authentication.core.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.test.context.TestConfiguration;

@@ -1,7 +1,7 @@
-package com.trklst.authentication.mock;
+package com.trcklst.authentication.mock;
 
-import com.trklst.authentication.core.Account;
-import com.trklst.authentication.core.AuthoritiesType;
+import com.trcklst.authentication.core.Account;
+import com.trcklst.authentication.core.AuthoritiesType;
 
 public class AccountMock {
 

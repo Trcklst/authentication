@@ -1,4 +1,4 @@
-package com.trklst.authentication.core;
+package com.trcklst.authentication.core;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;

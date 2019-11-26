@@ -1,4 +1,4 @@
-package com.trklst.authentication.mock;
+package com.trcklst.authentication.mock;
 
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
