@@ -1,4 +1,4 @@
-package com.trklst.authentication.core;
+package com.trcklst.authentication.core;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

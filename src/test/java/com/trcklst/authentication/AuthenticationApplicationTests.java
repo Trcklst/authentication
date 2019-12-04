@@ -1,8 +1,8 @@
-package com.trklst.authentication;
+package com.trcklst.authentication;
 
-import com.trklst.authentication.configurations.DatabaseConfiguration;
-import com.trklst.authentication.mock.AccountMock;
-import com.trklst.authentication.mock.TokenRequestParamsMock;
+import com.trcklst.authentication.configurations.DatabaseConfiguration;
+import com.trcklst.authentication.mock.AccountMock;
+import com.trcklst.authentication.mock.TokenRequestParamsMock;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;

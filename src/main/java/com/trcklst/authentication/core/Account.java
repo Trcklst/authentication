@@ -1,4 +1,4 @@
-package com.trklst.authentication.core;
+package com.trcklst.authentication.core;
 
 import lombok.Builder;
 import lombok.Data;
