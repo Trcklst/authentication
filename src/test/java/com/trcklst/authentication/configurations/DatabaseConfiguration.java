@@ -1,8 +1,8 @@
 package com.trcklst.authentication.configurations;
 
-import com.trcklst.authentication.mock.AccountMock;
-import com.trcklst.authentication.core.Account;
-import com.trcklst.authentication.core.AccountRepository;
+import com.trcklst.authentication.core.db.User;
+import com.trcklst.authentication.core.db.UserRepository;
+import com.trcklst.authentication.mock.UserMock;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -13,16 +13,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class DatabaseConfiguration {
 
-    private final AccountRepository accountRepository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Bean
     public CommandLineRunner createAccounts() {
         return args -> {
-            Account account = AccountMock.ACCOUNT_VALID_USER.toBuilder()
-                    .password(passwordEncoder.encode(AccountMock.ACCOUNT_VALID_USER.getPassword()))
+            User user = UserMock.VALID_USER.toBuilder()
+                    .password(passwordEncoder.encode(UserMock.VALID_USER.getPassword()))
                     .build();
-            accountRepository.save(account);
+            userRepository.save(user);
         };
     }
 }

@@ -1,7 +1,7 @@
 package com.trcklst.authentication;
 
-import com.trcklst.authentication.mock.AccountMock;
 import com.trcklst.authentication.mock.TokenRequestParamsMock;
+import com.trcklst.authentication.mock.UserMock;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
@@ -24,6 +24,7 @@ public class GetTokenTest extends AuthenticationApplicationTests {
         JSONObject token = getJsonToken(resultActions);
         Assertions.assertNotNull(token);
         Assertions.assertNotNull(token.getString("access_token"));
+        Assertions.assertEquals(1, token.getInt("userId"));
     }
 
     @Test
@@ -45,7 +46,7 @@ public class GetTokenTest extends AuthenticationApplicationTests {
         headers.setBasicAuth(oAuth2ClientProperties.getClientId(), oAuth2ClientProperties.getClientSecret());
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>(TokenRequestParamsMock.PARAMS);
-        String badPassword = String.format("%s BAD", AccountMock.ACCOUNT_VALID_USER.getPassword());
+        String badPassword = String.format("%s BAD", UserMock.VALID_USER.getPassword());
         params.set("password", badPassword);
 
         ResultActions resultActions = sendAccessTokenRequest(params, headers);
