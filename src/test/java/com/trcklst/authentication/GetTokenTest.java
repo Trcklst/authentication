@@ -24,7 +24,7 @@ public class GetTokenTest extends AuthenticationApplicationTests {
         JSONObject token = getJsonToken(resultActions);
         Assertions.assertNotNull(token);
         Assertions.assertNotNull(token.getString("access_token"));
-        Assertions.assertEquals(1, token.getInt("userId"));
+        Assertions.assertEquals(UserMock.VALID_USER.getId(), token.getInt("userId"));
     }
 
     @Test
