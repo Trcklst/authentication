@@ -1,8 +1,8 @@
 package com.trcklst.authentication;
 
 import com.trcklst.authentication.configurations.DatabaseConfiguration;
-import com.trcklst.authentication.core.feign.GetSubscriptionDto;
 import com.trcklst.authentication.core.feign.GetSubscriptionFeignService;
+import com.trcklst.getsubscription.api.GetSubscriptionDto;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;

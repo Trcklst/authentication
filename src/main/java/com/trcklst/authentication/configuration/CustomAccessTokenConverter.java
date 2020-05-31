@@ -1,9 +1,10 @@
 package com.trcklst.authentication.configuration;
 
 import com.trcklst.authentication.core.db.User;
-import com.trcklst.authentication.core.feign.GetSubscriptionDto;
 import com.trcklst.authentication.core.feign.GetSubscriptionFeignService;
+import com.trcklst.getsubscription.api.GetSubscriptionDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@Log4j2
 @RequiredArgsConstructor
 public class CustomAccessTokenConverter extends JwtAccessTokenConverter {
 
@@ -37,11 +39,20 @@ public class CustomAccessTokenConverter extends JwtAccessTokenConverter {
 
     private Map<String, Object> getAdditionalInformation(OAuth2Authentication authentication) {
         Integer userId = ((User) authentication.getPrincipal()).getId();
-        GetSubscriptionDto getSubscriptionDto = getSubscriptionFeignService.getSubscription(userId);
+        GetSubscriptionDto getSubscriptionDto = callSubscriptionService(userId);
         Map<String, Object> additionalInformation = new HashMap<>();
         additionalInformation.put("userId", userId);
         additionalInformation.put("subscription", getSubscriptionDto.getType());
         return additionalInformation;
+    }
+
+    private GetSubscriptionDto callSubscriptionService(Integer userId) {
+        try {
+            return getSubscriptionFeignService.getSubscription(userId);
+        } catch (Exception e) {
+            log.error("Error while requesting subscription service with userId : {}", userId);
+            return new GetSubscriptionDto();
+        }
     }
 
 }
