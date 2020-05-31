@@ -17,9 +17,15 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.RC2</spring-cloud.version>
+        <get-subscription.version>0.0.1-SNAPSHOT</get-subscription.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.trcklst</groupId>
+            <artifactId>get-subscription-api</artifactId>
+            <version>${get-subscription.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
