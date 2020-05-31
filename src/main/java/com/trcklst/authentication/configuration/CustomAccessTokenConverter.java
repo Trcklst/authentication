@@ -1,7 +1,8 @@
 package com.trcklst.authentication.configuration;
 
 import com.trcklst.authentication.core.db.User;
-import com.trcklst.getsubscription.api.GetSubscriptionDto;
+import com.trcklst.authentication.core.feign.GetSubscriptionDto;
+import com.trcklst.authentication.core.feign.GetSubscriptionFeignService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

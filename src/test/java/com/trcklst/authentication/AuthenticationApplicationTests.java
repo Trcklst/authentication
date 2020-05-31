@@ -1,11 +1,16 @@
 package com.trcklst.authentication;
 
 import com.trcklst.authentication.configurations.DatabaseConfiguration;
+import com.trcklst.authentication.core.feign.GetSubscriptionDto;
+import com.trcklst.authentication.core.feign.GetSubscriptionFeignService;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.OAuth2ClientProperties;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -34,11 +39,15 @@ class AuthenticationApplicationTests {
     private Filter springSecurityFilterChain;
     @Autowired
     protected OAuth2ClientProperties oAuth2ClientProperties;
+    @MockBean
+    protected GetSubscriptionFeignService getSubscriptionFeignService;
 
     protected MockMvc mockMvc;
 
     @PostConstruct
     void init() {
+        Mockito.when(getSubscriptionFeignService.getSubscription(ArgumentMatchers.any()))
+                .thenReturn(new GetSubscriptionDto());
         mockMvc = MockMvcBuilders.webAppContextSetup(wac)
                 .addFilter(springSecurityFilterChain)
                 .build();
