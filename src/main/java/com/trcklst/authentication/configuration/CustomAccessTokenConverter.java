@@ -17,7 +17,7 @@ import java.util.Map;
 @Log4j2
 public class CustomAccessTokenConverter extends JwtAccessTokenConverter {
 
-    private final String KEY = "secret-key";
+    private final static String KEY = "secret-key";
 
     private final GetSubscriptionFeignService getSubscriptionFeignService;
 
