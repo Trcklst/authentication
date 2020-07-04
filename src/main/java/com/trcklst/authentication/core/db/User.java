@@ -26,6 +26,8 @@ public class User implements UserDetails {
     private AuthoritiesType authority;
     @Field
     private boolean active;
+    @Field
+    private String restPasswordToken;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
