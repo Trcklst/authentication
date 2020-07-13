@@ -52,6 +52,7 @@ public class CustomAccessTokenConverter extends JwtAccessTokenConverter {
         additionalInformation.put("userId", user.getId());
         additionalInformation.put("subscription", getSubscriptionDto.getType());
         additionalInformation.put("email", user.getUsername());
+        additionalInformation.put("role", user.getAuthority());
         return additionalInformation;
     }
 
